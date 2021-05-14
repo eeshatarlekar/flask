@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Employee Management CRUD Application</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">   
+<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+<link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" type="text/css" >
+</head>
+<body>
+    <div class='nav'>
+        <h1>EMPLOYEE&nbsp; DETAILS  &nbsp; </h1>
+    </div>
+    <div>
+        <h2 style="text-align: center;"> Welcome,<br> {{records}} {{msg}} </h2>
+                                           
+                                        
+                                   
+
+    </div>
+    
+    <div class="div3">
+        <table id="emp">
+            <tr>
+              <th>Id</th>
+              <th>Employee Name</th>
+              <th>Email</th>
+              <th>Address</th>
+              <th>Contact</th>
+              <th>Salary</th>
+              <th>Department</th>
+            </tr>
+            
+            {% for i in rec %}
+            <tr>
+                
+                <td>{{i.0}}</td>
+                <td>{{i.1}}</td>
+                <td>{{i.2}}</td>
+                <td>{{i.3}}</td>
+                <td>{{i.4}}</td>
+                <td>{{i.5}}</td>
+                <td>{{i.6}}</td>
+
+            </tr>
+            {%endfor%}
+         
+            
+
+            </table>
+    </div>
+    <div>
+        <h3 style="text-align: center;">Note: Contact your admin if you need to update your details.</h3>
+        <h4><a href = "/logout" class='button_orange ' >Logout</a></h4>
+    </div>
+
+
+</body>
+</html>

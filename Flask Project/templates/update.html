@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<style>
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+input[type=textarea], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+</style>
+<body>
+
+<h3>Employee Form</h3>
+
+<div>
+
+        {% for i in records %}
+
+    
+    <form action= '/edit_employee' method='POST'>
+    
+
+      ID<br>
+      <input type='hidden' name='old_id' value={{i.0}}/></br>
+      <input type='text' name='id' /></br>
+      Employee Name<br>
+      <input type='text' name='name' value={{i.1}}/></br>
+      
+      Email<br>
+      <input type='text' name='email' value={{i.2}}/></br>
+     
+      Address<br>
+      <input type='text' name='add' value={{i.3}}/></br>
+     
+      Contact<br>
+      <input type='number' name='contact'value={{i.4}}/></br>
+     
+      <input type='submit' value='Update'/></br>
+
+    
+    </form>
+
+    {% endfor %}
+ 
+</div>
+
+</body>
+</html>

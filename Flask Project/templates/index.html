@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Employee Management CRUD Application</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">   
+<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+<link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" type="text/css" >
+</head>
+<body>
+    <div class='nav'>
+        <h1 style="text-align: center;">EMPLOYEE&nbsp;  MANAGEMENT  &nbsp;APPLICATION </h1>
+        <a href='/logout' class="logout" style="margin: 0px; float: right; padding: 5px; ;font-size: 15px;">Logout</a>
+    </div>
+
+    <div>
+        <h2 style="text-align: center;">Welcome, Admin!</h2>
+    </div>
+
+    <div class='div2'>
+        <h3>Manage Employees</h3>
+        <a href='add_employee' class="button1">Add New Employee</a><br>
+        
+        
+       </div>
+        </div>
+    </div>
+    <div class="div3">
+        <table id="emp">
+            <tr>
+              <th>Id</th>
+              <th>Employee Name</th>
+              <th>Email</th>
+              <th>Address</th>
+              <th>Contact</th>
+              <th>Salary</th>
+              <th>Department</th>
+              <th colspan="2">Action</th>
+            </tr>
+          
+            {%for i in records%}
+            <tr>
+                
+                <td>{{i.0}}</td>
+                <td>{{i.1}}</td>
+                <td>{{i.2}}</td>
+                <td>{{i.3}}</td>
+                <td>{{i.4}}</td>
+                <td>{{i.5}}</td>
+                <td>{{i.6}}</td>
+                <td><a href = "editUser?id={{i[0]}}"  class='button1' >Edit</a></td>
+                <td><a href = "deleteUser?id={{i[0]}}" class='button1' onclick="myFunction()">Delete</a></td>
+               
+            </tr>
+            {%endfor%}
+        
+            
+
+            </table>
+    </div>
+    
+    <p></p>
+
+    
+
+    <script>
+    function myFunction() {
+        confirm("Are you sure you want to delete?");
+       
+    }
+    </script>
+
+
+
+</body>
+</html>
